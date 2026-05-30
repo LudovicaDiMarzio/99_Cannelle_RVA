@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8">
+    <title>Fontana delle 99 Cannelle</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+        <!--SKYBOX 360-->
+        <a-sky src="assets/360/StreetView_Scena2 .jpg"></a-sky>
+
+        <!-- AUDIO AMBIENTALE - parte automaticamente -->
+        <a-sound
+            id="audio-ambiente"
+            src="assets/audio/fontana_pubblica.wav"
+            autoplay="false"
+            loop="true"
+            volume="1"
+            position="0 0 0">
+        </a-sound>
+
+        <!-- BLOCCO DI TESTO-->
+        <a-entity position="0 0 -3">
+
+            <!-- PANNELLO SFONDO SCURO -->
+            <a-plane
+                position="0 0 0"
+                width="3.5" height="3.2"
+                color="#1a0f00"
+                opacity="0.75">
+            </a-plane>
+
+            <!-- LINEA ORO sopra -->
+            <a-plane
+                position="0 1.5 0.01"
+                width="3" height="0.03"
+                color="#C9A84C">
+            </a-plane>
+
+            <!-- LINEA ORO sotto -->
+            <a-plane
+                position="0 -1.5 0.01"
+                width="3" height="0.03"
+                color="#C9A84C">
+            </a-plane>
+
+            <!-- TITOLO -->
+            <a-text
+                value="I Mascheroni"
+                align="center"
+                position="0 1.2 0.02"
+                scale="0.9 0.9 0.9"
+                color="#C9A84C"
+                font="kelsonsans">
+            </a-text>
+
+            <!-- SOTTOTITOLO -->
+            <a-text
+                value="I mascheroni sono tutti diversi\n tra loro e intervallati da\n formelle rettangolari, novantatre'\n delle quali contenenti \nun fiore in rilievo e un rosone,\n mentre le rimanenti sei \nsono vuote. Queste ultime \nrappresenterebbero le piaghe \ndel Cristo, mentre il rosone \nè a simboleggiare il ciclo \ndella vita e quindi l'eternita'\n."
+                align="center"
+                position="0 0.2 0.02"
+                scale="0.53 0.53 0.53"
+                color="#F0E6CC"
+                font="kelsonsans">
+            </a-text>
+
+
+            <!-- SEPARATORE -->
+            <a-plane
+                position="0 -0.61 0.01"
+                width="2" height="0.01"
+                color="#C9A84C"
+                opacity="0.5">
+            </a-plane>
+
+
+            <!-- PULSANTE ENTRA -->
+            <a-entity id="btn-entra" position="0 -0.85 0.02">
+
+                <a-plane
+                    width="2.2" height="0.4"
+                    color="#8B4513"
+                    opacity="0.95"
+                    class="clickable">
+                </a-plane>
+
+                <a-text
+                    value="➤  Visualizza un mascherone"
+                    align="center"
+                    position="0 0 0.01"
+                    scale="0.55 0.55 0.55"
+                    color="#F0E6CC"
+                    font="kelsonsans">
+                </a-text>
+
+            </a-entity>
+
+            <!--PULSANTE PER TORNARE ALLA SCENA 1-->
+            <a-entity id="btn-torna-scena1" position="0 -1.26 0.02">
+
+                <a-plane
+                    width="2.2" height="0.3"
+                    color="#4a4a4a"
+                    opacity="0.95"
+                    class="clickable">
+                </a-plane>
+
+                <a-text
+                    value="➤  Torna alla scena precedente"
+                    align="center"
+                    position="0 0 0.01"
+                    scale="0.55 0.55 0.55"
+                    color="#F0E6CC"
+                    font="kelsonsans">
+                </a-text>
+
+            </a-entity>
+
+        </a-entity>
+
+        <!-- CAMERA CON CURSORE -->
+      <a-camera position="0 0 0">
+        <a-cursor
+          color="#C9A84C"
+          fuse="true"
+          fuse-timeout="1500"
+          raycaster="objects: .clickable">
+        </a-cursor>
+      </a-camera>
+
+    </a-scene>
+
+    <script>
+        // Pulsante visualizza mascherone - per ora disabilitato
+        document.querySelector('#btn-entra').addEventListener('click', function() {
+        window.location.href = 'scene21.html';
+        });
+
+        // Pulsante torna alla scena 1
+        document.querySelector('#btn-torna-scena1').addEventListener('click', function() {
+        window.location.href = 'scene1.html';
+        });
+
+        // Audio ambientale parte al caricamento della scena
+        document.querySelector('a-scene').addEventListener('loaded', function() {
+        setTimeout(function() {
+            const ambiente = document.querySelector('#audio-ambiente');
+            if (ambiente.components.sound) {
+            ambiente.components.sound.playSound();
+            }
+        }, 1000);
+        });
+    </script>
+
+
+</body>
+</html>

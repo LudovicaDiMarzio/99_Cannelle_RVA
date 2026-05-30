@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8">
+    <title>99 Cannelle - La Piazza</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+  
+  </head>
+  <body>
+    <a-scene cursor="rayOrigin: mouse; fuse: true" raycaster="objects: .clickable">
+
+      <!-- SKYBOX 360 -->
+      <a-sky src="assets/360/StreetView_Scena1.jpg" rotation="0 150 0"></a-sky>
+
+      <!-- AUDIO AMBIENTALE - parte automaticamente -->
+      <a-sound
+        id="audio-ambiente"
+        src="assets/audio/fontana_pubblica.wav"
+        autoplay="false"
+        loop="true"
+        volume="0.5"
+        position="0 0 0">
+      </a-sound>
+
+      <!-- AUDIO NARRAZIONE - parte solo al click -->
+      <a-sound
+        id="audio-narrazione"
+        src="assets/audio/narratore_scena1.mp3"
+        autoplay="false"
+        loop="false"
+        volume="1"
+        position="0 0 0">
+      </a-sound>
+
+      <!-- GRUPPO PANNELLO INFORMATIVO - posizionato a destra -->
+        <a-entity position="-0.1 0 0.1">
+            <!-- CARTELLO 3D -->
+            <a-gltf-model
+                src="assets/models/PannelloMarmo.glb"
+                position="0.3 -0.2 -0.3"
+                rotation="0 45 0"
+                scale="0.07 0.07 0.07">
+                
+                <!-- GRUPPO TESTO - posizionato sulla superficie del cartello a destra -->
+              <a-entity position="-0.19 2.6 0" rotation="0 -90 0" scale="2.6 2.6 2.6">
+
+                <!-- SFONDO PANNELLO TESTO -->
+                <a-plane
+                position="0 0 0"
+                width="1.4" height="1.6"
+                color="#1a0f00"
+                opacity="0.8">
+                </a-plane>
+
+                <!-- LINEA ORO sopra -->
+                <a-plane
+                position="0 0.72 0.01"
+                width="1.2" height="0.02"
+                color="#C9A84C">
+                </a-plane>
+
+                <!-- LINEA ORO sotto -->
+                <a-plane
+                position="0 -0.72 0.01"
+                width="1.2" height="0.02"
+                color="#C9A84C">
+                </a-plane>
+
+                <!-- TITOLO -->
+                <a-text
+                value="Fontana delle 99 Cannelle"
+                align="center"
+                position="0 0.58 0.02"
+                scale="0.3 0.3 0.3"
+                color="#C9A84C"
+                font="kelsonsans">
+                </a-text>
+
+                <!-- TESTO DESCRITTIVO -->
+                <a-text
+                value="La Fontana delle 99 Cannelle,\ndetta Fontana della Rivera,\ne' una fontana monumentale\neretta nel 1272 dall'architetto\nTancredi da Pentima. Situata\na Borgo Rivera, e' costituita\nda 93 mascheroni in pietra\ne 6 cannelle singole.\nLe cannelle rappresentano\ni 99 castelli che fondarono\nL'Aquila nel XIII secolo.\nRestaruata dopo il sisma\ndel 2009 grazie al F.A.I."
+                align="center"
+                position="0 0.05 0.02"
+                scale="0.11 0.11 0.11"
+                color="#F0E6CC"
+                font="kelsonsans"
+                width="12">
+                </a-text>
+
+            </a-entity>
+
+            </a-gltf-model>
+
+            <!-- PULSANTE FUORI dal gltf-model ma dentro l'entity esterna -->
+            <a-entity id="btn-ascolta" position="0.26 -0.1 -0.26" rotation="0 -45 0" scale="0.2 0.2 0.2">
+
+            <a-plane
+                width="0.8" height="0.15"
+                color="#8B4513"
+                opacity="0.95"
+                class="clickable">
+            </a-plane>
+
+            <a-text
+                value="Ascolta la storia"
+                align="center"
+                position="0 0 0.01"
+                scale="0.3 0.3 0.3"
+                color="#F0E6CC"
+                font="kelsonsans">
+            </a-text>
+
+            </a-entity>
+
+        </a-entity>
+
+
+    
+
+      <!-- PULSANTE PER SCENA 2 -->
+      <a-entity id="btn-scena2" position="-0.009 -0.1 -0.25" scale="0.3 0.3 0.3">
+        <a-plane
+          width="0.5" height="0.1"
+          color="#8B4513"
+          opacity="0.95"
+          class="clickable">
+        </a-plane>
+        <a-text
+          value="Esplora la piazza"
+          align="center"
+          position="0 0 0.01"
+          scale="0.15 0.15 0.15"
+          color="#F0E6CC"
+          font="kelsonsans">
+        </a-text>
+      </a-entity>
+
+      <!-- PULSANTE TORNA ALLA HOME -->
+      <a-entity id="btn-home" position="-0.2 -0.1 -0.25" scale="0.3 0.3 0.3">
+        <a-plane
+          width="0.6" height="0.1"
+          color="#4a4a4a"
+          opacity="0.95"
+          class="clickable">
+        </a-plane>
+        <a-text
+          value="Torna alla schermata principale"
+          align="center"
+          position="0 0 0.01"
+          scale="0.15 0.15 0.15"
+          color="#F0E6CC"
+          font="kelsonsans">
+        </a-text>
+      </a-entity>
+
+      <!-- CAMERA CON CURSORE -->
+      <a-camera position="0 0 0">
+        <a-cursor
+          color="#C9A84C"
+          fuse="true"
+          fuse-timeout="1500"
+          raycaster="objects: .clickable"
+          material="depthTest: false; shader: flat"
+          geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+          position="0 0 -1">
+        </a-cursor>
+      </a-camera>
+
+    </a-scene>
+
+    <script>
+        // Audio ambientale parte al caricamento della scena
+        document.querySelector('a-scene').addEventListener('loaded', function() {
+        setTimeout(function() {
+            const ambiente = document.querySelector('#audio-ambiente');
+            if (ambiente.components.sound) {
+            ambiente.components.sound.playSound();
+            }
+        }, 1000);
+        });
+
+        // Narrazione parte solo al gaze/click sul pulsante
+        document.querySelector('#btn-ascolta').addEventListener('mouseenter', function() {
+        const narrazione = document.querySelector('#audio-narrazione');
+        if (narrazione.components.sound) {
+            narrazione.components.sound.playSound();
+        }
+        });
+
+        // Pulsante scena 2
+        document.querySelector('#btn-scena2').addEventListener('click', function() {
+        window.location.href = 'scene2.html';
+        });
+
+        // Pulsante torna alla home
+        document.querySelector('#btn-home').addEventListener('click', function() {
+        window.location.href = 'index.html';
+        });
+    </script>
+
+  </body>
+</html>
