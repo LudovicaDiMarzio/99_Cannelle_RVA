@@ -34,14 +34,10 @@
 
       <!-- GRUPPO PANNELLO INFORMATIVO - posizionato a destra -->
         <a-entity position="-0.1 0 0.1">
-            <!-- CARTELLO 3D -->
-            <a-gltf-model
-                src="assets/models/PannelloMarmo.glb"
-                position="0.3 -0.2 -0.3"
-                rotation="0 45 0"
-                scale="0.07 0.07 0.07">
+
                 
-                <!-- GRUPPO TESTO - posizionato sulla superficie del cartello a destra -->
+              <!-- GRUPPO TESTO - posizionato sulla superficie del cartello a destra -->
+              <a-entity position="0.3 -0.2 -0.3" rotation="0 45 0" scale="0.07 0.07 0.07">
               <a-entity position="-0.19 2.6 0" rotation="0 -90 0" scale="2.6 2.6 2.6">
 
                 <!-- SFONDO PANNELLO TESTO -->
@@ -88,8 +84,8 @@
                 </a-text>
 
             </a-entity>
+            </a-entity>
 
-            </a-gltf-model>
 
             <!-- PULSANTE FUORI dal gltf-model ma dentro l'entity esterna -->
             <a-entity id="btn-ascolta" position="0.26 -0.1 -0.26" rotation="0 -45 0" scale="0.2 0.2 0.2">
