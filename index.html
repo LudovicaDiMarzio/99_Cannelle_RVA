@@ -9,7 +9,10 @@
     <a-scene>
 
       <!-- SFONDO PIETRA -->
-      <a-sky src="Assets/Images/Pietra.jpg" color="#444444" opacity="0.5"></a-sky>
+       <a-assets>
+        <img id="texture-pietra" src="Assets/Images/Pietra.jpg">
+        </a-assets>
+      <a-sky src="#texture-pietra" color="#444444" opacity="0.5"></a-sky>
 
       <!-- GRUPPO PANNELLO CENTRALE - modifica solo questo position per spostare tutto -->
       <a-entity position="0 0 -3">

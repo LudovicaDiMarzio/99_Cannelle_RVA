@@ -8,7 +8,10 @@
   <body>
     <a-scene>
         <!--SKYBOX 360-->
-        <a-sky src="Assets/360/StreetView_Scena2.jpg"></a-sky>
+        <a-assets>
+            <img id="sky-scena2" src="Assets/360/StreetView_Scena2.jpg">
+        </a-assets>
+        <a-sky src="#sky-scena2"></a-sky>
 
         <!-- AUDIO AMBIENTALE - parte automaticamente -->
         <a-sound
