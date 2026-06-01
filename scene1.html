@@ -10,7 +10,10 @@
     <a-scene>
 
       <!-- SKYBOX 360 -->
-      <a-sky src="Assets/360/StreetView_Scena1.jpg" rotation="0 150 0"></a-sky>
+       <a-assets>
+        <img id="sky-scena1" src="Assets/360/StreetView_Scena1.jpg">
+       </a-assets>
+      <a-sky src="#sky-scena1" rotation="0 150 0"></a-sky>
 
       <!-- AUDIO AMBIENTALE - parte automaticamente -->
       <a-sound
