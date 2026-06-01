@@ -206,24 +206,43 @@
     </a-scene>
 
     <script>
+        let popupAperto = false; // Variabile per tracciare lo stato del pannello
         // Apri pannello mascherone
         document.querySelector('#btn-entra').addEventListener('click', function() {
-        document.querySelector('#pannello-mascherone').setAttribute('visible', 'true');
-        const audioMascherone = document.querySelector('#audio-mascherone');
-        if (audioMascherone.components.sound) {
-            audioMascherone.components.sound.playSound();
-        }
+            if (popupAperto) return; // Se il pannello è già aperto, non fare nulla
+            popupAperto = true; // Imposta lo stato del pannello come aperto
+            const pannelloMascherone = document.querySelector('#pannello-mascherone');
+            //Se il pannello è già visibile, non fare nulla
+            if (pannelloMascherone.getAttribute('visible') === 'true') {
+                return;
+            }
+            pannelloMascherone.setAttribute('visible', 'true');
+            document.querySelector('#btn-entra').setAttribute('visible', 'false'); // Nascondi il pulsante "Entra" quando il pannello è aperto
+            document.querySelector('#btn-torna-scena1').setAttribute('visible', 'false'); // Nascondi il pulsante "Torna alla scena precedente" quando il pannello è aperto
+            const audioMascherone = document.querySelector('#audio-mascherone');
+            if (audioMascherone.components.sound) {
+                audioMascherone.components.sound.stopSound(); // Assicurati di fermare l'audio prima di riprodurlo nuovamente
+                audioMascherone.components.sound.playSound();
+            }
         });
 
         // Chiudi pannello mascherone
         document.querySelector('#btn-chiudi-mascherone').addEventListener('click', function() {
-        document.querySelector('#pannello-mascherone').setAttribute('visible', 'false');
+            document.querySelector('#pannello-mascherone').setAttribute('visible', 'false');
+            popupAperto = false; // Imposta lo stato del pannello come chiuso
+            document.querySelector('#btn-entra').setAttribute('visible', 'true'); // Mostra il pulsante "Entra" quando il pannello è chiuso
+            document.querySelector('#btn-torna-scena1').setAttribute('visible', 'true'); // Mostra il pulsante "Torna alla scena precedente" quando il pannello è chiuso
+            const audioMascherone = document.querySelector('#audio-mascherone');
+            if (audioMascherone.components.sound) {
+            audioMascherone.components.sound.stopSound();
+            }
         });
 
 
         // Pulsante torna alla scena 1
         document.querySelector('#btn-torna-scena1').addEventListener('click', function() {
-        window.location.href = 'scene1.html';
+            if (popupAperto) return; // Se il pannello è aperto, non permettere di tornare alla scena precedente
+            window.location.href = 'scene1.html';
         });
 
         // Audio ambientale parte al caricamento della scena
