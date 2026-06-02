@@ -23,178 +23,180 @@
             position="0 0 0">
         </a-sound>
 
-        <!-- BLOCCO DI TESTO-->
-        <a-entity position="0 0 -3">
+        <a-entity position="0 1.8 0">
 
-            <!-- PANNELLO SFONDO SCURO -->
-            <a-plane
-                position="0 0 0"
-                width="3.5" height="3.2"
-                color="#1a0f00"
-                opacity="0.75">
-            </a-plane>
+            <!-- BLOCCO DI TESTO-->
+            <a-entity position="0 0 -3">
 
-            <!-- LINEA ORO sopra -->
-            <a-plane
-                position="0 1.5 0.01"
-                width="3" height="0.03"
-                color="#C9A84C">
-            </a-plane>
-
-            <!-- LINEA ORO sotto -->
-            <a-plane
-                position="0 -1.5 0.01"
-                width="3" height="0.03"
-                color="#C9A84C">
-            </a-plane>
-
-            <!-- TITOLO -->
-            <a-text
-                value="I Mascheroni"
-                align="center"
-                position="0 1.2 0.02"
-                scale="0.9 0.9 0.9"
-                color="#C9A84C"
-                font="kelsonsans">
-            </a-text>
-
-            <!-- SOTTOTITOLO -->
-            <a-text
-                value="I mascheroni sono tutti diversi\n tra loro e intervallati da\n formelle rettangolari, novantatre'\n delle quali contenenti \nun fiore in rilievo e un rosone,\n mentre le rimanenti sei \nsono vuote. Queste ultime \nrappresenterebbero le piaghe \ndel Cristo, mentre il rosone \nè a simboleggiare il ciclo \ndella vita e quindi l'eternita'\n."
-                align="center"
-                position="0 0.2 0.02"
-                scale="0.53 0.53 0.53"
-                color="#F0E6CC"
-                font="kelsonsans">
-            </a-text>
-
-
-            <!-- SEPARATORE -->
-            <a-plane
-                position="0 -0.61 0.01"
-                width="2" height="0.01"
-                color="#C9A84C"
-                opacity="0.5">
-            </a-plane>
-
-
-            <!-- PULSANTE ENTRA -->
-            <a-entity id="btn-entra" position="0 -0.85 0.02">
-
+                <!-- PANNELLO SFONDO SCURO -->
                 <a-plane
-                    width="2.2" height="0.4"
-                    color="#8B4513"
-                    opacity="0.95"
-                    class="clickable">
+                    position="0 0 0"
+                    width="3.5" height="3.2"
+                    color="#1a0f00"
+                    opacity="0.75">
                 </a-plane>
 
+                <!-- LINEA ORO sopra -->
+                <a-plane
+                    position="0 1.5 0.01"
+                    width="3" height="0.03"
+                    color="#C9A84C">
+                </a-plane>
+
+                <!-- LINEA ORO sotto -->
+                <a-plane
+                    position="0 -1.5 0.01"
+                    width="3" height="0.03"
+                    color="#C9A84C">
+                </a-plane>
+
+                <!-- TITOLO -->
                 <a-text
-                    value="➤  Visualizza un mascherone"
+                    value="I Mascheroni"
                     align="center"
-                    position="0 0 0.01"
-                    scale="0.55 0.55 0.55"
+                    position="0 1.2 0.02"
+                    scale="0.9 0.9 0.9"
+                    color="#C9A84C"
+                    font="kelsonsans">
+                </a-text>
+
+                <!-- SOTTOTITOLO -->
+                <a-text
+                    value="I mascheroni sono tutti diversi\n tra loro e intervallati da\n formelle rettangolari, novantatre'\n delle quali contenenti \nun fiore in rilievo e un rosone,\n mentre le rimanenti sei \nsono vuote. Queste ultime \nrappresenterebbero le piaghe \ndel Cristo, mentre il rosone \nè a simboleggiare il ciclo \ndella vita e quindi l'eternita'\n."
+                    align="center"
+                    position="0 0.2 0.02"
+                    scale="0.53 0.53 0.53"
                     color="#F0E6CC"
                     font="kelsonsans">
                 </a-text>
 
+
+                <!-- SEPARATORE -->
+                <a-plane
+                    position="0 -0.61 0.01"
+                    width="2" height="0.01"
+                    color="#C9A84C"
+                    opacity="0.5">
+                </a-plane>
+
+
+                <!-- PULSANTE ENTRA -->
+                <a-entity id="btn-entra" position="0 -0.85 0.02">
+
+                    <a-plane
+                        width="2.2" height="0.4"
+                        color="#8B4513"
+                        opacity="0.95"
+                        class="clickable">
+                    </a-plane>
+
+                    <a-text
+                        value="➤  Visualizza un mascherone"
+                        align="center"
+                        position="0 0 0.01"
+                        scale="0.55 0.55 0.55"
+                        color="#F0E6CC"
+                        font="kelsonsans">
+                    </a-text>
+
+                </a-entity>
+
+                <!--PULSANTE PER TORNARE ALLA SCENA 1-->
+                <a-entity id="btn-torna-scena1" position="0 -1.26 0.02">
+
+                    <a-plane
+                        width="2.2" height="0.3"
+                        color="#4a4a4a"
+                        opacity="0.95"
+                        class="clickable">
+                    </a-plane>
+
+                    <a-text
+                        value="➤  Torna alla scena precedente"
+                        align="center"
+                        position="0 0 0.01"
+                        scale="0.55 0.55 0.55"
+                        color="#F0E6CC"
+                        font="kelsonsans">
+                    </a-text>
+
+                </a-entity>
+
             </a-entity>
 
-            <!--PULSANTE PER TORNARE ALLA SCENA 1-->
-            <a-entity id="btn-torna-scena1" position="0 -1.26 0.02">
 
+            <!-- PANNELLO MASCHERONE - nascosto di default -->
+            <a-entity id="pannello-mascherone" visible="false">
+
+                <!-- SFONDO SCURO SEMITRASPARENTE -->
                 <a-plane
-                    width="2.2" height="0.3"
+                    position="0 0 -2"
+                    width="3" height="4"
+                    color="#000000"
+                    opacity="0.85">
+                </a-plane>
+
+                <!-- AUDIO NARRATORE MASCHERONE -->
+                <a-sound
+                    id="audio-mascherone"
+                    src="Assets/Audio/narratore_mascherone.mp3"
+                    autoplay="false"
+                    loop="false"
+                    volume="1"
+                    position="0 0 0">
+                </a-sound>
+
+                <!-- MODELLO MASCHERONE -->
+                <a-gltf-model
+                    id="modello-mascherone"
+                    src="Assets/Models/mascherone.glb"
+                    position="0 0.2 -2"
+                    scale="2 2 2"
+                    rotation="0 0 0"
+                    animation="property: rotation; from: 0 -45 0;to: 0 45 0; loop: true; dur: 8000; easing: easeInOutSine; dir: alternate">
+                </a-gltf-model>
+
+                <!-- TITOLO -->
+                <a-text
+                    value="Mascherone - Fontana delle 99 Cannelle"
+                    align="center"
+                    position="0 1.3 -1.99"
+                    scale="0.5 0.5 0.5"
+                    color="#C9A84C"
+                    font="kelsonsans">
+                </a-text>
+
+                <!-- TESTO DESCRITTIVO -->
+                <a-text
+                    value="Mascherone in pietra locale, XIII secolo.\nOgni mascherone e' unico e rappresenta\nuno dei signori dei 99 castelli fondatori."
+                    align="center"
+                    position="0 -0.5 -1.99"
+                    scale="0.35 0.35 0.35"
+                    color="#F0E6CC"
+                    font="kelsonsans">
+                </a-text>
+
+                <!-- PULSANTE CHIUDI -->
+                <a-entity id="btn-chiudi-mascherone" position="0 -1 -1.99">
+                    <a-plane
+                    width="1.5" height="0.25"
                     color="#4a4a4a"
                     opacity="0.95"
                     class="clickable">
-                </a-plane>
-
-                <a-text
-                    value="➤  Torna alla scena precedente"
+                    </a-plane>
+                    <a-text
+                    value="✕  Chiudi"
                     align="center"
                     position="0 0 0.01"
-                    scale="0.55 0.55 0.55"
+                    scale="0.4 0.4 0.4"
                     color="#F0E6CC"
                     font="kelsonsans">
-                </a-text>
+                    </a-text>
+                </a-entity>
 
             </a-entity>
 
         </a-entity>
-
-
-        <!-- PANNELLO MASCHERONE - nascosto di default -->
-        <a-entity id="pannello-mascherone" visible="false">
-
-        <!-- SFONDO SCURO SEMITRASPARENTE -->
-        <a-plane
-            position="0 0 -2"
-            width="3" height="4"
-            color="#000000"
-            opacity="0.85">
-        </a-plane>
-
-        <!-- AUDIO NARRATORE MASCHERONE -->
-        <a-sound
-            id="audio-mascherone"
-            src="Assets/Audio/narratore_mascherone.mp3"
-            autoplay="false"
-            loop="false"
-            volume="1"
-            position="0 0 0">
-        </a-sound>
-
-        <!-- MODELLO MASCHERONE -->
-        <a-gltf-model
-            id="modello-mascherone"
-            src="Assets/Models/mascherone.glb"
-            position="0 0.2 -2"
-            scale="2 2 2"
-            rotation="0 0 0"
-            animation="property: rotation; from: 0 -45 0;to: 0 45 0; loop: true; dur: 8000; easing: easeInOutSine; dir: alternate">
-        </a-gltf-model>
-
-        <!-- TITOLO -->
-        <a-text
-            value="Mascherone - Fontana delle 99 Cannelle"
-            align="center"
-            position="0 1.3 -1.99"
-            scale="0.5 0.5 0.5"
-            color="#C9A84C"
-            font="kelsonsans">
-        </a-text>
-
-        <!-- TESTO DESCRITTIVO -->
-        <a-text
-            value="Mascherone in pietra locale, XIII secolo.\nOgni mascherone e' unico e rappresenta\nuno dei signori dei 99 castelli fondatori."
-            align="center"
-            position="0 -0.5 -1.99"
-            scale="0.35 0.35 0.35"
-            color="#F0E6CC"
-            font="kelsonsans">
-        </a-text>
-
-        <!-- PULSANTE CHIUDI -->
-        <a-entity id="btn-chiudi-mascherone" position="0 -1 -1.99">
-            <a-plane
-            width="1.5" height="0.25"
-            color="#4a4a4a"
-            opacity="0.95"
-            class="clickable">
-            </a-plane>
-            <a-text
-            value="✕  Chiudi"
-            align="center"
-            position="0 0 0.01"
-            scale="0.4 0.4 0.4"
-            color="#F0E6CC"
-            font="kelsonsans">
-            </a-text>
-        </a-entity>
-
-        </a-entity>
-
-
 
         <!-- CAMERA CON CURSORE -->
       <a-camera position="0 1.6 0">

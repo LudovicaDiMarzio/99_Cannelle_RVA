@@ -14,111 +14,113 @@
         </a-assets>
       <a-sky src="#texture-pietra" color="#444444" opacity="0.5"></a-sky>
 
-      <!-- GRUPPO PANNELLO CENTRALE - modifica solo questo position per spostare tutto -->
-      <a-entity position="0 0 -3">
 
-        <!-- PANNELLO SFONDO SCURO -->
-        <a-plane
-          position="0 0 0"
-          width="3.5" height="3.2"
-          color="#1a0f00"
-          opacity="0.75">
-        </a-plane>
+        <!-- GRUPPO PANNELLO CENTRALE - modifica solo questo position per spostare tutto -->
+        <a-entity position="0 1.6 -3">
 
-        <!-- LINEA ORO sopra -->
-        <a-plane
-          position="0 1.5 0.01"
-          width="3" height="0.03"
-          color="#C9A84C">
-        </a-plane>
-
-        <!-- LINEA ORO sotto -->
-        <a-plane
-          position="0 -1.5 0.01"
-          width="3" height="0.03"
-          color="#C9A84C">
-        </a-plane>
-
-        <!-- TITOLO -->
-        <a-text
-          value="Fontana delle 99 Cannelle"
-          align="center"
-          position="0 1.2 0.02"
-          scale="0.9 0.9 0.9"
-          color="#C9A84C"
-          font="kelsonsans">
-        </a-text>
-
-        <!-- SOTTOTITOLO -->
-        <a-text
-          value="Un'esperienza di realta' virtuale\ntra storia, simbolismo e territorio"
-          align="center"
-          position="0 0.65 0.02"
-          scale="0.5 0.5 0.5"
-          color="#F0E6CC"
-          font="kelsonsans">
-        </a-text>
-
-        <!-- ANNO E LUOGO -->
-        <a-text
-          value="L'Aquila  —  1272 d.C."
-          align="center"
-          position="0 0.25 0.02"
-          scale="0.45 0.45 0.45"
-          color="#C9A84C"
-          font="kelsonsans">
-        </a-text>
-
-        <!-- SEPARATORE -->
-        <a-plane
-          position="0 0.05 0.01"
-          width="2" height="0.01"
-          color="#C9A84C"
-          opacity="0.5">
-        </a-plane>
-
-        <!-- NOME E MATRICOLA -->
-        <a-text
-          value="Ludovica Di Marzio  —  Matricola: 285493"
-          align="center"
-          position="0 -0.2 0.02"
-          scale="0.38 0.38 0.38"
-          color="#AAAAAA"
-          font="kelsonsans">
-        </a-text>
-
-        <!-- PULSANTE ENTRA -->
-        <a-entity id="btn-entra" position="0 -0.8 0.02">
-
+          <!-- PANNELLO SFONDO SCURO -->
           <a-plane
-            width="2.2" height="0.55"
-            color="#8B4513"
-            opacity="0.95"
-            class="clickable">
+            position="0 0 0"
+            width="3.5" height="3.2"
+            color="#1a0f00"
+            opacity="0.75">
           </a-plane>
 
+          <!-- LINEA ORO sopra -->
+          <a-plane
+            position="0 1.5 0.01"
+            width="3" height="0.03"
+            color="#C9A84C">
+          </a-plane>
+
+          <!-- LINEA ORO sotto -->
+          <a-plane
+            position="0 -1.5 0.01"
+            width="3" height="0.03"
+            color="#C9A84C">
+          </a-plane>
+
+          <!-- TITOLO -->
           <a-text
-            value="➤  Entra nell'esperienza"
+            value="Fontana delle 99 Cannelle"
             align="center"
-            position="0 0 0.01"
-            scale="0.55 0.55 0.55"
+            position="0 1.2 0.02"
+            scale="0.9 0.9 0.9"
+            color="#C9A84C"
+            font="kelsonsans">
+          </a-text>
+
+          <!-- SOTTOTITOLO -->
+          <a-text
+            value="Un'esperienza di realta' virtuale\ntra storia, simbolismo e territorio"
+            align="center"
+            position="0 0.65 0.02"
+            scale="0.5 0.5 0.5"
             color="#F0E6CC"
             font="kelsonsans">
           </a-text>
 
+          <!-- ANNO E LUOGO -->
+          <a-text
+            value="L'Aquila  —  1272 d.C."
+            align="center"
+            position="0 0.25 0.02"
+            scale="0.45 0.45 0.45"
+            color="#C9A84C"
+            font="kelsonsans">
+          </a-text>
+
+          <!-- SEPARATORE -->
+          <a-plane
+            position="0 0.05 0.01"
+            width="2" height="0.01"
+            color="#C9A84C"
+            opacity="0.5">
+          </a-plane>
+
+          <!-- NOME E MATRICOLA -->
+          <a-text
+            value="Ludovica Di Marzio  —  Matricola: 285493"
+            align="center"
+            position="0 -0.2 0.02"
+            scale="0.38 0.38 0.38"
+            color="#AAAAAA"
+            font="kelsonsans">
+          </a-text>
+
+          <!-- PULSANTE ENTRA -->
+          <a-entity id="btn-entra" position="0 -0.8 0.02">
+
+            <a-plane
+              width="2.2" height="0.55"
+              color="#8B4513"
+              opacity="0.95"
+              class="clickable">
+            </a-plane>
+
+            <a-text
+              value="➤  Entra nell'esperienza"
+              align="center"
+              position="0 0 0.01"
+              scale="0.55 0.55 0.55"
+              color="#F0E6CC"
+              font="kelsonsans">
+            </a-text>
+
+          </a-entity>
+
         </a-entity>
 
-      </a-entity>
 
-      <!-- CAMERA CON CURSORE -->
-      <a-camera position="0 1.6 0">
-        <a-cursor
-          color="#C9A84C"
-          fuse="true"
-          fuse-timeout="1500"
-          raycaster="objects: .clickable">
-        </a-cursor>
-      </a-camera>
+        <!-- CAMERA CON CURSORE -->
+        <a-camera position="0 1.6 0">
+          <a-cursor
+            color="#C9A84C"
+            fuse="true"
+            fuse-timeout="1500"
+            raycaster="objects: .clickable">
+          </a-cursor>
+        </a-camera>
 
     </a-scene>
 

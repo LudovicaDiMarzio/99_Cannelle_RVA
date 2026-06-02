@@ -34,8 +34,10 @@
         volume="1"
         position="0 0 0">
       </a-sound>
-      <a-entity position="0 120 0">
-      <!-- GRUPPO PANNELLO INFORMATIVO - posizionato a destra -->
+      
+      <a-entity position="0 1.6 -0.3">
+
+        <!-- GRUPPO PANNELLO INFORMATIVO - posizionato a destra -->
         <a-entity position="1 0 -1" rotation="0 -45 0">
 
                 <!-- SFONDO PANNELLO TESTO -->
@@ -108,41 +110,42 @@
 
 
     
-      <!-- PULSANTE PER SCENA 2 -->
-      <a-entity id="btn-scena2" position="0 -0.4 -0.95">
-        <a-plane
-          width="0.5" height="0.1"
-          color="#8B4513"
-          opacity="0.95"
-          class="clickable">
-        </a-plane>
-        <a-text
-          value="Esplora la piazza"
-          align="center"
-          position="0 0 0.01"
-          scale="0.15 0.15 0.15"
-          color="#F0E6CC"
-          font="kelsonsans">
-        </a-text>
-      </a-entity>
+        <!-- PULSANTE PER SCENA 2 -->
+        <a-entity id="btn-scena2" position="0 -0.4 -0.95">
+          <a-plane
+            width="0.5" height="0.1"
+            color="#8B4513"
+            opacity="0.95"
+            class="clickable">
+          </a-plane>
+          <a-text
+            value="Esplora la piazza"
+            align="center"
+            position="0 0 0.01"
+            scale="0.15 0.15 0.15"
+            color="#F0E6CC"
+            font="kelsonsans">
+          </a-text>
+        </a-entity>
 
-      <!-- PULSANTE TORNA ALLA HOME -->
-      <a-entity id="btn-home" position="-0.5 -0.4 -0.7" rotation="0 45 0">
-        <a-plane
-          width="0.6" height="0.1"
-          color="#4a4a4a"
-          opacity="0.95"
-          class="clickable">
-        </a-plane>
-        <a-text
-          value="Torna alla schermata principale"
-          align="center"
-          position="0 0 0.01"
-          scale="0.15 0.15 0.15"
-          color="#F0E6CC"
-          font="kelsonsans">
-        </a-text>
-      </a-entity>
+        <!-- PULSANTE TORNA ALLA HOME -->
+        <a-entity id="btn-home" position="-0.5 -0.4 -0.7" rotation="0 45 0">
+          <a-plane
+            width="0.6" height="0.1"
+            color="#4a4a4a"
+            opacity="0.95"
+            class="clickable">
+          </a-plane>
+          <a-text
+            value="Torna alla schermata principale"
+            align="center"
+            position="0 0 0.01"
+            scale="0.15 0.15 0.15"
+            color="#F0E6CC"
+            font="kelsonsans">
+          </a-text>
+        </a-entity>
+      
       </a-entity>
 
       <!-- CAMERA CON CURSORE -->
