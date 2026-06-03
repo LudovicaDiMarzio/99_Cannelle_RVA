@@ -109,6 +109,43 @@
 
           </a-entity>
 
+          <!--MODELLO 3D SECCHI-->
+          <a-gltf-model
+            src="Assets/Models/secchi.glb"
+            position="1.5 -1.5 1.3"
+            rotation="0 150 0"
+            scale="1.3 1.3 1.3">
+          </a-gltf-model>
+
+          <!-- MODELLO 3D FONTANA -->
+           <a-gltf-model
+            src="Assets/Models/fontanella.glb"
+            position="0 -1.5 -1"
+            rotation="0 45 0"
+            scale="1.5 1.5 1.5">
+          </a-gltf-model>
+
+          <!-- AUDIO FONTANA -->
+          <a-sound
+            id="audio-fontana"
+            src="assets/audio/acqua_soft.wav"
+            autoplay="false"
+            loop="true"
+            volume="0.8"
+            position="0 -1.5 -1">
+          </a-sound>
+
+          <!-- TRIGGER INVISIBILE SULLA FONTANA -->
+          <a-plane
+            id="trigger-fontana"
+            position="-1 -0.3 1.75"
+            rotation="0 45 0"
+            width="0.5" height="1"
+            opacity="0"
+            scale="1.5 1.5 1.5"
+            class="clickable">
+          </a-plane>
+
         </a-entity>
 
 
@@ -125,8 +162,17 @@
     </a-scene>
 
     <script>
+      // Trigger per entrare nella scena 1
       document.querySelector('#btn-entra').addEventListener('click', function() {
         window.location.href = 'scene1.html';
+      });
+
+      // Trigger audio fontana
+      document.querySelector('#trigger-fontana').addEventListener('click', function() {
+        const audioFontana = document.querySelector('#audio-fontana');
+        if (audioFontana.components.sound) {
+          audioFontana.components.sound.playSound();
+        }
       });
     </script>
 
